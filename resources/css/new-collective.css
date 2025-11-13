@@ -1,0 +1,70 @@
+@import 'tailwindcss';
+
+@font-face {
+    font-family: PP Neue Machina;
+    font-style: normal;
+    font-weight: 400;
+    src: url("../fonts/pp-neue-machina-regular.woff2") format("woff2");
+}
+
+@theme {
+    --font-sans: 'PP Neue Machina', ui-sans-serif, system-ui, sans-serif;
+
+    --color-brand-dark: #1E1E1E;
+    --color-brand-blue: #EAF8FF;
+    --color-brand-light: #ffffff;
+
+    --color-overlay-dark-80: rgba(30, 30, 30, 0.8);
+    --color-overlay-dark-20: rgba(30, 30, 30, 0.2);
+    --color-overlay-blue-80: rgba(234, 248, 255, 0.8);
+    --color-overlay-blue-20: rgba(234, 248, 255, 0.2);
+    --color-overlay-light-80: rgba(255, 255, 255, 0.8);
+    --color-overlay-light-20: rgba(255, 255, 255, 0.2);
+
+    --text-body-xl: 1.875rem;
+    --text-body-xl--line-height: 2.25rem;
+    --text-body-xl--letter-spacing: -0.0375rem;
+    --text-body-lg: 1rem;
+    --text-body-lg--line-height: 1rem;
+    --text-body-lg--letter-spacing: 0;
+    --text-body-md: 0.75rem;
+    --text-body-md--line-height: 0.75rem;
+    --text-body-md--letter-spacing: 0;
+}
+
+@layer base {
+
+    body {
+        background-color: var(--color-brand-light);
+        color: var(--color-brand-dark);
+    }
+
+    h1 {
+        font-family: "PP Neue Machina", sans-serif;
+        font-size: 12.5rem;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 100%; /* 12.5rem */
+        letter-spacing: -0.625rem;
+    }
+
+    h2 {
+        font-family: "PP Neue Machina", sans-serif;
+        font-size: 9.375rem;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 100%; /* 9.375rem */
+        letter-spacing: -0.46875rem;
+    }
+
+    h3 {
+        font-family: "PP Neue Machina", sans-serif;
+        font-size: 5.625rem;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 100%; /* 5.625rem */
+        letter-spacing: -0.28125rem;
+    }
+
+
+}

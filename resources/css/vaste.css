@@ -10,7 +10,7 @@
     font-style: normal;
     font-weight: 200 800;
     font-display: swap;
-    src: url("../fonts/manrope-vf.ttf") format("truetype");
+    src: url("../fonts/manrope-vf.woff2") format("woff2");
 }
 
 @theme {

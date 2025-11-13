@@ -1,5 +1,7 @@
 @extends('base')
 
+@section('title', 'Vaste Magazine')
+
 @section('head')
     @vite(['resources/css/vaste.css', 'resources/js/vaste.js'])
 @endsection
@@ -32,8 +34,10 @@
                 <x-vaste.title>Magazine</x-vaste.title>
             </div>
         </section>
-        <section class="h-[1200px] w-full bg-amber-100">
+        <section class="h-[1200px] w-full bg-amber-100 mt-17">
+            <div class="w-full h-[calc(100lvh - 100px)] bg-amber-200">
 
+            </div>
         </section>
     </div>
     <div class="relative">
@@ -48,7 +52,7 @@
             <div></div>
         </section>
         <section class="h-[1200px] w-full bg-blue-100">
-
+            Hello
         </section>
     </div>
 @endsection
