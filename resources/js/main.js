@@ -48,16 +48,9 @@ draggables.forEach((draggable, key) => {
         },
     });
 
-    draggable.addEventListener("mouseover", () => {
-        cursor.classList.remove("hidden");
-    });
-    draggable.addEventListener("mouseout", () => {
-        cursor.classList.add("hidden");
-    });
-
     document.addEventListener("mousemove", (e) => {
-        cursor.style.left = `${e.clientX - 10}px`;
-        cursor.style.top = `${e.clientY - 10}px`;
+        cursor.style.left = `${e.clientX - 20}px`;
+        cursor.style.top = `${e.clientY - 20}px`;
     });
 
     gsap.fromTo(
@@ -148,12 +141,11 @@ window.onload = () => {
         main,
         {
             clipPath: "inset(0% 100% 0% 0%)",
-            filter: "blur(15px)",
         },
         {
             clipPath: "inset(0% 0% 0% 0%)",
-            filter: "blur(0px)",
             duration: 0.8,
+            delay: 0.5,
         }
     );
 };
@@ -167,11 +159,9 @@ if (main) {
                 main,
                 {
                     clipPath: "inset(0% 0% 0% 0%)",
-                    filter: "blur(0px)",
                 },
                 {
                     clipPath: "inset(0% 100% 0% 0%)",
-                    filter: "blur(15px)",
                     duration: 0.8,
                 }
             );

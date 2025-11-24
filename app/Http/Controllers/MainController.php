@@ -22,6 +22,7 @@ class MainController extends Controller
 
     public function services()
     {
-        return view('services', []);
+        return response('', 404);
+        // return view('services', []);
     }
 }

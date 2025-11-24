@@ -8,6 +8,7 @@ class NewCollectiveController extends Controller
 {
     public function index()
     {
-        return view('templates.new-collective');
+        return response('', 404);
+        // return view('templates.new-collective');
     }
 }

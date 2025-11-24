@@ -8,6 +8,7 @@ class VasteController extends Controller
 {
     public function index()
     {
-        return view('templates.vaste');
+        return response('', 404);
+        // return view('templates.vaste');
     }
 }
