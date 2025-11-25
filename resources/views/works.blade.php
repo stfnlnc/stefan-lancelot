@@ -34,7 +34,7 @@
                                 </div>
                             @endif
                         </a>
-                        <div class="flex flex-row w-full justify-between items-start mt-1 ">
+                        <div class="flex flex-col md:flex-row w-full justify-between items-start mt-1">
                             <div class="flex flex-col gap-0 mb-12">
                                 <a class="link w-fit inline-flex items-center gap-1" href="{{ $work->url }}">
                                     {{ $work->title }}
@@ -50,7 +50,7 @@
                                     @endforeach
                                 </p>
                             </div>
-                            <p>{{ $index + 1 }} / {{ count($works) }}</p>
+                            <p class="ml-auto">{{ $index + 1 }} / {{ count($works) }}</p>
                         </div>
                     </div>
                 @endforeach

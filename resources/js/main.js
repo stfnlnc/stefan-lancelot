@@ -116,22 +116,24 @@ if (hoursMobile && minutesMobile) {
     }, 10000);
 }
 
-PowerGlitch.glitch(".glitch", {
-    playMode: "hover",
-    hideOverflow: true,
-    timing: {
-        easing: "ease-out",
-    },
-    glitchTimeSpan: false,
-    shake: false,
-    slice: {
-        count: 60,
-        velocity: 6,
-        minHeight: 0.14,
-        maxHeight: 0.01,
-        cssFilters: "grayscale(100%)",
-    },
-});
+if (window.innerWidth > 768) {
+    PowerGlitch.glitch(".glitch", {
+        playMode: "hover",
+        hideOverflow: true,
+        timing: {
+            easing: "ease-out",
+        },
+        glitchTimeSpan: false,
+        shake: false,
+        slice: {
+            count: 60,
+            velocity: 6,
+            minHeight: 0.14,
+            maxHeight: 0.01,
+            cssFilters: "grayscale(100%)",
+        },
+    });
+}
 
 const main = document.getElementById("main");
 const buttons = document.querySelectorAll("a.button");
