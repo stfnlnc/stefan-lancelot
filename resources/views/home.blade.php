@@ -53,8 +53,7 @@
                             <a class="link" target="_blank"
                                 href="https://www.linkedin.com/in/stefan-lancelot/">LinkedIn</a>
                             /
-                            <a class="link" target="_blank"
-                                href="https://www.linkedin.com/in/stefan-lancelot/">Instagram</a>
+                            <a class="link" target="_blank" href="https://www.instagram.com/studio_khi/">Instagram</a>
                         </div>
                     </div>
                     <div class="w-full flex flex-row items-center justify-between">
