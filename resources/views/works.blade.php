@@ -23,7 +23,8 @@
                 @foreach ($works as $index => $work)
                     <div
                         class="shrink-0 work w-full h-[90%] p-2 overflow-hidden bg-dark transition-all duration-500 flex flex-col">
-                        <a class="w-full h-[90%] bg-dark border border-stroke border-dashed inline-flex items-center justify-center overflow-hidden"
+                        <a target="_blank"
+                            class="w-full h-[90%] bg-dark border border-stroke border-dashed inline-flex items-center justify-center overflow-hidden"
                             href="{{ $work->url }}">
                             @if ($work->image)
                                 <img class="w-full h-auto lg:w-auto lg:h-[80%] object-cover object-center"
@@ -36,7 +37,8 @@
                         </a>
                         <div class="flex flex-col md:flex-row w-full justify-between items-start mt-1">
                             <div class="flex flex-col gap-0 mb-12">
-                                <a class="link w-fit inline-flex items-center gap-1" href="{{ $work->url }}">
+                                <a target="_blank" class="link w-fit inline-flex items-center gap-1"
+                                    href="{{ $work->url }}">
                                     {{ $work->title }}
                                     <svg class="w-5 mb-0.5" width="100%" height="100%" viewBox="0 0 24 24" fill="none"
                                         xmlns="http://www.w3.org/2000/svg">
