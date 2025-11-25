@@ -1,45 +1,61 @@
 @extends('base')
 
-@section('title', 'Works - Front-End Developer - Stefan Lancelot')
+@section('title', 'Works - Stefan Lancelot')
 
 @section('head')
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Works - Front-End Developer - Stefan Lancelot" />
+    <meta property="og:type" content="website" />
+    <meta name="theme-color" content="#262626">
+    <meta property="og:url" content="{{ url()->current() }}" />
+    <meta property="og:image" content="{{ asset('images/stefan-lancelot.png') }}" />
+    <meta property="og:description"
+        content="Creating websites that grow your business. Focus on building high-performing websites that deliver a unique user experience." />
+    <meta name="description"
+        content="Creating websites that grow your business. Focus on building high-performing websites that deliver a unique user experience." />
     @vite(['resources/css/main.css', 'resources/js/main.js'])
 @endsection
+
 @section('content')
     <x-layouts.guest>
-        <div
-            class="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full md:w-[85%] h-[85%] min-h-[700px] bg-dark border border-stroke">
-            @foreach ($works as $work)
-                <div
-                    class="work absolute top-0 left-0 w-full h-full p-2 overflow-auto no-scrollbar bg-dark transition-all duration-500 opacity-0 pointer-events-none blur-xl first:opacity-100 first:blur-none first:pointer-events-auto">
-                    <a href="{{ $work->url }}">
-                        @if ($work->image)
-                            <img class="w-full h-[90%] object-cover object-center"
-                                src="{{ 'storage' . DIRECTORY_SEPARATOR . $work->image }}" alt="">
-                        @else
-                            <div class="w-full h-[90%] bg-stroke">
+        <div class="relative w-full bg-dark h-full border border-stroke flex flex-col justify-between">
+            <div class="flex flex-row overflow-hidden h-full">
+                @foreach ($works as $index => $work)
+                    <div
+                        class="shrink-0 work w-full h-[90%] p-2 overflow-hidden bg-dark transition-all duration-500 flex flex-col">
+                        <a class="w-full h-[90%] bg-dark border border-stroke border-dashed inline-flex items-center justify-center overflow-hidden"
+                            href="{{ $work->url }}">
+                            @if ($work->image)
+                                <img class="w-full h-auto lg:w-auto lg:h-[80%] object-cover object-center"
+                                    src="{{ 'storage' . DIRECTORY_SEPARATOR . $work->image }}" alt="">
+                            @else
+                                <div class="w-full h-50 lg:w-[80%] lg:h-[80%] object-cover object-center bg-stroke">
 
-                            </div>
-                        @endif
-                    </a>
-                    <div class="flex flex-col gap-0 mt-1">
-                        <a class="link w-fit inline-flex items-center gap-1" href="{{ $work->url }}">
-                            {{ $work->title }}
-                            <svg class="w-5" width="100%" height="100%" viewBox="0 0 24 24" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path d="M6 18L18 6M18 6H10M18 6V14" stroke="currentColor" stroke-width="2"
-                                    stroke-linecap="round" stroke-linejoin="round" />
-                            </svg>
+                                </div>
+                            @endif
                         </a>
-                        <p>
-                            @foreach ($work->tags as $tag)
-                                {{ '{' . $tag . '}' }}
-                            @endforeach
-                        </p>
+                        <div class="flex flex-row w-full justify-between items-start mt-1 ">
+                            <div class="flex flex-col gap-0 mb-12">
+                                <a class="link w-fit inline-flex items-center gap-1" href="{{ $work->url }}">
+                                    {{ $work->title }}
+                                    <svg class="w-5 mb-0.5" width="100%" height="100%" viewBox="0 0 24 24" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round" />
+                                    </svg>
+                                </a>
+                                <p>
+                                    @foreach ($work->tags as $tag)
+                                        {{ '{' . $tag . '}' }}
+                                    @endforeach
+                                </p>
+                            </div>
+                            <p>{{ $index + 1 }} / {{ count($works) }}</p>
+                        </div>
                     </div>
-                </div>
-            @endforeach
-            <div class="absolute bottom-2 right-2 flex flex-row gap-2">
+                @endforeach
+            </div>
+            <div class="w-full flex flex-row justify-end gap-2 mt-auto pb-4 pr-4">
                 <svg id="prev-work" class="w-8 cursor-pointer" width="100%" height="100%" viewBox="0 0 24 24"
                     fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="1" stroke-linecap="round"

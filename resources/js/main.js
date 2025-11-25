@@ -181,25 +181,20 @@ if (prevWork && nextWork) {
     nextWork.addEventListener("click", () => {
         if (t < works.length - 1) {
             t++;
-            console.log(t);
-            works.forEach((work) => {
-                work.classList.add("opacity-0");
+            works.forEach((work, key) => {
                 work.classList.add("blur-xl");
-                work.classList.add("pointer-events-none");
+                work.style.transform = `translate(-${t}00%, 0)`;
             });
-            works[t].classList.remove("opacity-0");
             works[t].classList.remove("blur-xl");
-            works[t].classList.remove("pointer-events-none");
+            works[t].style.transform = `translate(-${t}00%, 0)`;
         } else {
             t = 0;
             works.forEach((work) => {
-                work.classList.add("opacity-0");
                 work.classList.add("blur-xl");
-                work.classList.add("pointer-events-none");
+                work.style.transform = `translate(-${t}00%, 0)`;
             });
-            works[t].classList.remove("opacity-0");
             works[t].classList.remove("blur-xl");
-            works[t].classList.remove("pointer-events-none");
+            works[t].style.transform = `translate(-${t}00%, 0)`;
         }
     });
 
@@ -207,23 +202,19 @@ if (prevWork && nextWork) {
         if (t > 0) {
             t--;
             works.forEach((work) => {
-                work.classList.add("opacity-0");
                 work.classList.add("blur-xl");
-                work.classList.add("pointer-events-none");
+                work.style.transform = `translate(-${t}00%, 0)`;
             });
-            works[t].classList.remove("opacity-0");
             works[t].classList.remove("blur-xl");
-            works[t].classList.remove("pointer-events-none");
+            works[t].style.transform = `translate(-${t}00%, 0)`;
         } else {
             t = works.length - 1;
             works.forEach((work) => {
-                work.classList.add("opacity-0");
                 work.classList.add("blur-xl");
-                work.classList.add("pointer-events-none");
+                work.style.transform = `translate(-${t}00%, 0)`;
             });
-            works[t].classList.remove("opacity-0");
             works[t].classList.remove("blur-xl");
-            works[t].classList.remove("pointer-events-none");
+            works[t].style.transform = `translate(-${t}00%, 0)`;
         }
     });
 }

@@ -60,7 +60,7 @@
 
     h1,
     .h1 {
-        @apply uppercase text-[3.35rem] sm:text-[5.35rem] md:text-[7.35rem] lg:text-[8.35rem] xl:text-[9.35rem];
+        @apply uppercase text-[3.35rem] sm:text-[5.35rem] md:text-[7.35rem] lg:text-[7.35rem] xl:text-[9.35rem];
     }
 
     .link {
@@ -87,16 +87,6 @@
 }
 
 @layer components {
-    .square-corner::after {
-        content: "";
-        @apply absolute top-0 left-0 w-2 h-2 bg-light border-none;
-    }
-
-    .square-corner::before {
-        content: "";
-        @apply absolute top-0 right-0 w-2 h-2 bg-light border-none;
-    }
-
     .item {
         font-family: "Jetbrains Mono", monospace;
     }

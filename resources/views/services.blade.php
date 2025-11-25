@@ -2,9 +2,6 @@
 
 @section('title', 'Services - Front-End Developer - Stefan Lancelot')
 
-@section('head')
-    @vite(['resources/css/main.css', 'resources/js/main.js'])
-@endsection
 @section('content')
     <x-layouts.guest>
         <div
@@ -34,3 +31,39 @@
             </div>
     </x-layouts.guest>
 @endsection
+
+
+@foreach ($works as $index => $work)
+    <div
+        class="shrink-0 work w-full h-[80%] p-2 overflow-auto no-scrollbar bg-dark transition-all duration-500 flex flex-col">
+        <a class="w-full h-[90%] bg-dark border border-stroke border-dashed inline-flex items-center justify-center"
+            href="{{ $work->url }}">
+            @if ($work->image)
+                <img class="w-auto h-[90%] object-cover object-center"
+                    src="{{ 'storage' . DIRECTORY_SEPARATOR . $work->image }}" alt="">
+            @else
+                <div class="w-full h-[90%] bg-stroke">
+
+                </div>
+            @endif
+        </a>
+        <div class="flex flex-row w-full justify-between items-start mt-1 ">
+            <div class="flex flex-col gap-0 mb-12">
+                <a class="link w-fit inline-flex items-center gap-1" href="{{ $work->url }}">
+                    {{ $work->title }}
+                    <svg class="w-5 mb-0.5" width="100%" height="100%" viewBox="0 0 24 24" fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                </a>
+                <p>
+                    @foreach ($work->tags as $tag)
+                        {{ '{' . $tag . '}' }}
+                    @endforeach
+                </p>
+            </div>
+            <p>{{ $index + 1 }} / {{ count($works) }}</p>
+        </div>
+    </div>
+@endforeach
