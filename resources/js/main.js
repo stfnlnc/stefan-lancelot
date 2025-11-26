@@ -252,23 +252,30 @@ if (prevWork && nextWork) {
                     works.forEach((work) => {
                         work.style.transform = `translate(-${t}00%, 0)`;
                     });
+                    works[t].classList.remove("blur-xl");
                 } else {
+                    t = 0;
                     works.forEach((work) => {
+                        work.classList.add("blur-xl");
                         work.style.transform = "translate(0px, 0)";
                     });
-                    t = 0;
+                    works[t].classList.remove("blur-xl");
                 }
             } else {
                 if (t > 0) {
                     t--;
                     works.forEach((work) => {
+                        work.classList.add("blur-xl");
                         work.style.transform = `translate(-${t}00%, 0)`;
                     });
+                    works[t].classList.remove("blur-xl");
                 } else {
                     t = works.length - 1;
                     works.forEach((work) => {
+                        work.classList.add("blur-xl");
                         work.style.transform = `translate(-${t}00%, 0)`;
                     });
+                    works[t].classList.remove("blur-xl");
                 }
             }
         },
