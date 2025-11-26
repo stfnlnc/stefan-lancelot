@@ -186,6 +186,7 @@ if (main) {
 const nextWork = document.getElementById("next-work");
 const prevWork = document.getElementById("prev-work");
 const works = document.querySelectorAll(".work");
+const worksContainer = document.querySelector(".works-container");
 
 let t = 0;
 if (prevWork && nextWork) {
@@ -227,5 +228,49 @@ if (prevWork && nextWork) {
             works[t].classList.remove("blur-xl");
             works[t].style.transform = `translate(-${t}00%, 0)`;
         }
+    });
+
+    let maxTranslate = Math.floor(
+        worksContainer.getBoundingClientRect().width /
+            works[0].getBoundingClientRect().width
+    );
+
+    Draggable.create(".works-container", {
+        type: "x",
+        bounds: { minX: 0, maxX: 0 },
+        inertia: true,
+        dragClickables: true,
+        onDragStart() {
+            this.startClientX = this.pointerEvent.clientX;
+        },
+        onDragEnd() {
+            const endClientX = this.pointerEvent.clientX;
+            const diff = endClientX - this.startClientX;
+            if (diff < 0) {
+                if (t < works.length - maxTranslate) {
+                    t++;
+                    works.forEach((work) => {
+                        work.style.transform = `translate(-${t}00%, 0)`;
+                    });
+                } else {
+                    works.forEach((work) => {
+                        work.style.transform = "translate(0px, 0)";
+                    });
+                    t = 0;
+                }
+            } else {
+                if (t > 0) {
+                    t--;
+                    works.forEach((work) => {
+                        work.style.transform = `translate(-${t}00%, 0)`;
+                    });
+                } else {
+                    t = works.length - 1;
+                    works.forEach((work) => {
+                        work.style.transform = `translate(-${t}00%, 0)`;
+                    });
+                }
+            }
+        },
     });
 }

@@ -19,7 +19,7 @@
 @section('content')
     <x-layouts.guest>
         <div class="blur-effect relative w-full bg-dark h-full border border-stroke flex flex-col justify-between">
-            <div class="flex flex-row overflow-hidden h-full">
+            <div class="flex flex-row overflow-hidden h-full works-container">
                 @foreach ($works as $index => $work)
                     <div
                         class="shrink-0 work w-full h-[90%] p-2 overflow-hidden bg-dark transition-all duration-500 flex flex-col">
@@ -57,7 +57,7 @@
                     </div>
                 @endforeach
             </div>
-            <div class="w-full flex flex-row justify-end gap-2 mt-auto pb-4 pr-4">
+            <div class="w-full flex flex-row justify-end gap-2 mt-auto pb-4">
                 <svg id="prev-work" class="w-8 cursor-pointer" width="100%" height="100%" viewBox="0 0 24 24"
                     fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="1" stroke-linecap="round"
