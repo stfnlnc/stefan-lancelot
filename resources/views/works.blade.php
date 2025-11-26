@@ -18,7 +18,7 @@
 
 @section('content')
     <x-layouts.guest>
-        <div class="relative w-full bg-dark h-full border border-stroke flex flex-col justify-between">
+        <div class="blur-effect relative w-full bg-dark h-full border border-stroke flex flex-col justify-between">
             <div class="flex flex-row overflow-hidden h-full">
                 @foreach ($works as $index => $work)
                     <div

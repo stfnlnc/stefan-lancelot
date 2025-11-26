@@ -19,7 +19,7 @@
 @section('content')
     <x-layouts.guest>
         <div class="flex flex-col gap-6 md:hidden w-full h-full py-6">
-            <div class="w-80 h-80 p-2 border border-stroke backdrop-blur-md pointer-events-auto">
+            <div class="blur-effect w-80 h-80 p-2 border border-stroke backdrop-blur-md pointer-events-auto">
                 <div class="absolute top-0 left-0 w-full flex flex-row items-center justify-between">
                     <div class="w-2 aspect-square bg-light"></div>
                     <div class="w-2 aspect-square bg-light"></div>
@@ -33,7 +33,7 @@
                         alt="">
                 </div>
             </div>
-            <div class="w-full h-80 p-2 border border-stroke backdrop-blur-md pointer-events-auto">
+            <div class="blur-effect w-full h-80 p-2 border border-stroke backdrop-blur-md pointer-events-auto">
                 <div class="absolute top-0 left-0 w-full flex flex-row items-center justify-between">
                     <div class="w-2 aspect-square bg-light"></div>
                     <div class="w-2 aspect-square bg-light"></div>
@@ -62,7 +62,7 @@
                     </div>
                 </div>
             </div>
-            <div class="w-80 h-80 p-2 border border-stroke backdrop-blur-md pointer-events-auto">
+            <div class="blur-effect w-80 h-80 p-2 border border-stroke backdrop-blur-md pointer-events-auto">
                 <div class="absolute top-0 left-0 w-full flex flex-row items-center justify-between">
                     <div class="w-2 aspect-square bg-light"></div>
                     <div class="w-2 aspect-square bg-light"></div>
@@ -74,13 +74,13 @@
                 <div class="w-full h-full flex flex-col items-center justify-center">
                     <p>Paris GMT+1</p>
                     <p class="flex flex-row gap-0 text-5xl">
-                        <span id="hours-mobile">05</span>
+                        <span class="hours">05</span>
                         <span class="tick">:</span>
-                        <span id="minutes-mobile">52</span>
+                        <span class="minutes">52</span>
                     </p>
                 </div>
             </div>
-            <div class="w-full h-120 p-2 border border-stroke backdrop-blur-md pointer-events-auto">
+            <div class="blur-effect w-full h-120 p-2 border border-stroke backdrop-blur-md pointer-events-auto">
                 <div class="absolute top-0 left-0 w-full flex flex-row items-center justify-between">
                     <div class="w-2 aspect-square bg-light"></div>
                     <div class="w-2 aspect-square bg-light"></div>
@@ -107,7 +107,7 @@
         </div>
         <div class="main-container w-full h-full absolute top-0 left-0 hidden md:block pointer-events-none">
             <div
-                class="w-120 h-80 absolute top-60 left-60 2xl:left-120 p-2 border border-stroke draggable backdrop-blur-md pointer-events-auto">
+                class="blur-effect w-120 h-80 absolute top-60 left-60 2xl:left-120 p-2 border border-stroke draggable backdrop-blur-md pointer-events-auto">
                 <div class="absolute top-0 left-0 w-full flex flex-row items-center justify-between">
                     <div class="w-2 aspect-square bg-light"></div>
                     <div class="w-2 aspect-square bg-light"></div>
@@ -138,7 +138,7 @@
                 </div>
             </div>
             <div
-                class="w-80 h-120 absolute top-100 xl:top-60 left-120 lg:left-180 xl:left-220 2xl:left-260 p-2 border border-stroke draggable backdrop-blur-md pointer-events-auto">
+                class="blur-effect w-80 h-120 absolute top-100 xl:top-60 left-120 lg:left-180 xl:left-220 2xl:left-260 p-2 border border-stroke draggable backdrop-blur-md pointer-events-auto">
                 <div class="absolute top-0 left-0 w-full flex flex-row items-center justify-between">
                     <div class="w-2 aspect-square bg-light"></div>
                     <div class="w-2 aspect-square bg-light"></div>
@@ -162,7 +162,7 @@
                 </div>
             </div>
             <div
-                class="w-80 h-80 absolute top-160 left-80 xl:left-160 2xl:left-200 p-2 border border-stroke draggable backdrop-blur-md pointer-events-auto">
+                class="blur-effect w-80 h-80 absolute top-160 left-80 xl:left-160 2xl:left-200 p-2 border border-stroke draggable backdrop-blur-md pointer-events-auto">
                 <div class="absolute top-0 left-0 w-full flex flex-row items-center justify-between">
                     <div class="w-2 aspect-square bg-light"></div>
                     <div class="w-2 aspect-square bg-light"></div>
@@ -177,7 +177,7 @@
                 </div>
             </div>
             <div
-                class="w-80 h-80 absolute top-100 left-20 xl:left-40 2xl:left-100 p-2 border border-stroke draggable backdrop-blur-md pointer-events-auto">
+                class="blur-effect w-80 h-80 absolute top-100 left-20 xl:left-40 2xl:left-100 p-2 border border-stroke draggable backdrop-blur-md pointer-events-auto">
                 <div class="absolute top-0 left-0 w-full flex flex-row items-center justify-between">
                     <div class="w-2 aspect-square bg-light"></div>
                     <div class="w-2 aspect-square bg-light"></div>
@@ -189,9 +189,9 @@
                 <div class="w-full h-full flex flex-col items-center justify-center">
                     <p>Paris GMT+1</p>
                     <p class="flex flex-row gap-0 text-5xl">
-                        <span id="hours">05</span>
+                        <span class="hours">05</span>
                         <span class="tick">:</span>
-                        <span id="minutes">52</span>
+                        <span class="minutes">52</span>
                     </p>
                 </div>
             </div>

@@ -79,42 +79,30 @@ draggables.forEach((draggable, key) => {
     });
 });
 
-const hours = document.getElementById("hours");
-const minutes = document.getElementById("minutes");
-const now = new Date();
-const h = now.getHours().toString().padStart(2, "0");
-const i = now.getMinutes().toString().padStart(2, "0");
+function updateClock() {
+    const hourElements = document.querySelectorAll(".hours");
+    const minuteElements = document.querySelectorAll(".minutes");
 
-if (hours && minutes) {
-    hours.innerText = h;
-    minutes.innerText = i;
-    setInterval(() => {
-        const now = new Date();
-        const h = now.getHours().toString().padStart(2, "0");
-        const i = now.getMinutes().toString().padStart(2, "0");
-        hours.innerText = h;
-        minutes.innerText = i;
-    }, 10000);
+    if (hourElements.length === 0 && minuteElements.length === 0) {
+        return;
+    }
+
+    const now = new Date();
+    const h = now.getHours().toString().padStart(2, "0");
+    const i = now.getMinutes().toString().padStart(2, "0");
+
+    hourElements.forEach((element) => {
+        element.innerText = h;
+    });
+
+    minuteElements.forEach((element) => {
+        element.innerText = i;
+    });
 }
 
-const hoursMobile = document.getElementById("hours-mobile");
-const minutesMobile = document.getElementById("minutes-mobile");
-const nowMobile = new Date();
-const hMobile = nowMobile.getHours().toString().padStart(2, "0");
-const iMobile = nowMobile.getMinutes().toString().padStart(2, "0");
+updateClock();
 
-if (hoursMobile && minutesMobile) {
-    hoursMobile.innerText = hMobile;
-    minutesMobile.innerText = iMobile;
-
-    setInterval(() => {
-        const nowMobile = new Date();
-        const hMobile = nowMobile.getHours().toString().padStart(2, "0");
-        const iMobile = nowMobile.getMinutes().toString().padStart(2, "0");
-        hoursMobile.innerText = hMobile;
-        minutesMobile.innerText = iMobile;
-    }, 10000);
-}
+setInterval(updateClock, 10000);
 
 if (window.innerWidth > 768) {
     PowerGlitch.glitch(".glitch", {
@@ -150,6 +138,17 @@ window.onload = () => {
             delay: 0.5,
         }
     );
+    gsap.fromTo(
+        ".blur-effect",
+        {
+            filter: "blur(10px)",
+        },
+        {
+            filter: "blur(0px)",
+            duration: 0.8,
+            delay: 0.5,
+        }
+    );
 };
 
 if (main) {
@@ -164,6 +163,16 @@ if (main) {
                 },
                 {
                     clipPath: "inset(0% 100% 0% 0%)",
+                    duration: 0.8,
+                }
+            );
+            gsap.fromTo(
+                ".blur-effect",
+                {
+                    filter: "blur(0px)",
+                },
+                {
+                    filter: "blur(10px)",
                     duration: 0.8,
                 }
             );
