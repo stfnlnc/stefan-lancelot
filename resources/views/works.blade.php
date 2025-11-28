@@ -22,12 +22,12 @@
             <div class="flex flex-row overflow-hidden h-full works-container">
                 @foreach ($works as $index => $work)
                     <div
-                        class="shrink-0 work w-full h-[90%] p-2 overflow-hidden bg-dark transition-all duration-500 flex flex-col">
+                        class="shrink-0 work w-full h-full p-2 overflow-hidden bg-dark transition-all duration-500 flex flex-col">
                         <a target="_blank"
-                            class="relative w-full h-auto bg-dark border border-stroke inline-flex items-center justify-center overflow-hidden"
+                            class="relative w-full h-full bg-dark border border-stroke inline-flex items-center justify-center overflow-hidden"
                             href="{{ $work->url }}">
                             @if ($work->image)
-                                <img class="w-full h-auto md:h-100 object-contain object-center"
+                                <img class="w-full h-auto md:w-auto md:h-100 object-contain object-center"
                                     src="{{ 'storage' . DIRECTORY_SEPARATOR . $work->image }}" alt="">
                             @else
                                 <div class="w-full h-100 bg-stroke flex flex-row items-center justify-center">

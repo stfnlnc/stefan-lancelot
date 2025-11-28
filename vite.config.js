@@ -10,8 +10,6 @@ export default defineConfig({
                 "resources/js/app.js",
                 "resources/css/main.css",
                 "resources/js/main.js",
-                "resources/css/vaste.css",
-                "resources/js/vaste.js",
             ],
             refresh: true,
         }),

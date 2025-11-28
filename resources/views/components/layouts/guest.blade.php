@@ -11,35 +11,19 @@
             class="relative overflow-hidden flex flex-col items-start justify-start w-full h-full min-h-[98lvh] md:min-h-[780px] max-w-screen-3xl p-2 bg-dark"
             style="clip-path: inset(0% 100% 0% 0%);">
             <div class="relative z-30 flex flex-col-reverse lg:flex-row items-start justify-between w-full gap-2">
-                @if (request()->routeIs('home'))
-                    <h2 class="blur-effect select-none h1">Stefan <br> Lancelot</h2>
-                @else
-                    <h2 class="blur-effect select-none h1">@yield('title')</h2>
-                @endif
+                <x-title>
+                    @if (request()->routeIs('home'))
+                        Stefan <br> Lancelot
+                    @else
+                        @yield('title')
+                    @endif
+                </x-title>
+
                 <div class="flex flex-row gap-2 ml-auto">
+                    <x-link :route="'home'">Home</x-link>
+                    <x-link :route="'works'">Works</x-link>
                     @if (request()->routeIs('home'))
-                        <span class="button bg-light cursor-default" aria-current="page">{home}</span>
-                    @else
-                        <a class="button glitch" href="{{ route('home') }}">
-                            {home}
-                        </a>
-                    @endif
-                    @if (request()->routeIs('works'))
-                        <span class="button bg-light cursor-default" aria-current="page">{works}</span>
-                    @else
-                        <a class="button glitch" href="{{ route('works') }}">
-                            {works}
-                        </a>
-                    @endif
-                    {{--        @if (request()->routeIs('services'))
-                        <span class="button bg-light cursor-default" aria-current="page">{services}</span>
-                    @else
-                        <a class="button glitch" href="{{ route('services') }}">
-                            {services}
-                        </a>
-                    @endif --}}
-                    @if (request()->routeIs('home'))
-                        <button id="resetBtn" class="button hidden md:block glitch">{Clear Cache}</button>
+                        <x-button id="resetBtn" class="hidden md:block">Clear Cache</x-button>
                     @endif
                 </div>
             </div>
@@ -49,9 +33,9 @@
             <div
                 class="relative z-30 w-full mt-auto flex flex-col lg:flex-row items-start lg:items-end justify-between gap-2">
                 @if (request()->routeIs('home'))
-                    <h1 class="blur-effect select-none h1">
+                    <x-title>
                         Front end <br> Developper
-                    </h1>
+                    </x-title>
                 @endif
                 <div class="text-xs item ml-auto">
                     <span class="opacity-50">Designed by</span>
