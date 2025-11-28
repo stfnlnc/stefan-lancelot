@@ -27,7 +27,7 @@
                             class="relative w-full h-auto bg-dark border border-stroke inline-flex items-center justify-center overflow-hidden"
                             href="{{ $work->url }}">
                             @if ($work->image)
-                                <img class="w-full h-100 object-contain object-center"
+                                <img class="w-full h-auto md:h-100 object-contain object-center"
                                     src="{{ 'storage' . DIRECTORY_SEPARATOR . $work->image }}" alt="">
                             @else
                                 <div class="w-full h-100 bg-stroke flex flex-row items-center justify-center">
