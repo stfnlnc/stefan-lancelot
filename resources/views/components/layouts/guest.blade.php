@@ -13,6 +13,8 @@
             <div class="relative z-30 flex flex-col-reverse lg:flex-row items-start justify-between w-full gap-2">
                 @if (request()->routeIs('home'))
                     <h2 class="blur-effect select-none h1">Stefan <br> Lancelot</h2>
+                @else
+                    <h2 class="blur-effect select-none h1">@yield('title')</h2>
                 @endif
                 <div class="flex flex-row gap-2 ml-auto">
                     @if (request()->routeIs('home'))

@@ -1,6 +1,6 @@
 @extends('base')
 
-@section('title', 'Front-End Developer - Stefan Lancelot')
+@section('title', 'Front-End Developer')
 
 @section('head')
     <meta name="robots" content="index, follow">
