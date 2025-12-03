@@ -10,7 +10,6 @@ class MainController extends Controller
 {
     public function index()
     {
-
         $infos = Info::firstOrFail();
         return view('home', [
             'infos' => $infos
@@ -19,7 +18,7 @@ class MainController extends Controller
 
     public function works()
     {
-        $works = Work::all();
+        $works = Work::orderBy('sort_order')->get();
         return view('works', [
             'works' => $works,
         ]);
