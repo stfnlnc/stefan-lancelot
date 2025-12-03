@@ -7,10 +7,11 @@ namespace App\Models;
 use Filament\Panel;
 use Illuminate\Notifications\Notifiable;
 use Filament\Models\Contracts\FilamentUser;
+use Filament\Models\Contracts\HasAvatar;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class User extends Authenticatable  implements FilamentUser
+class User extends Authenticatable  implements FilamentUser, HasAvatar
 {
     /** @use HasFactory<\Database\Factories\UserFactory> */
     use HasFactory, Notifiable;
@@ -22,6 +23,7 @@ class User extends Authenticatable  implements FilamentUser
      */
     protected $fillable = [
         'name',
+        'avatar_url',
         'email',
         'password',
     ];
@@ -52,5 +54,15 @@ class User extends Authenticatable  implements FilamentUser
     public function canAccessPanel(Panel $panel): bool
     {
         return true;
+    }
+
+    public function getFilamentAvatarUrl(): ?string
+    {
+        if (! $this->avatar_url) {
+            return null;
+        }
+
+        // Si le fichier est dans 'public/storage'
+        return asset('storage/' . $this->avatar_url);
     }
 }

@@ -40,7 +40,7 @@ return [
 
         'public_custom' => [
             'driver' => 'local',
-            'root' => public_path('storage'), // ou public_path('uploads') pour un autre dossier
+            'root' => public_path('storage'),
             'url' => env('APP_URL') . '/storage',
             'visibility' => 'public',
             'throw' => false,

@@ -29,8 +29,8 @@
                     <div class="w-2 aspect-square bg-light"></div>
                 </div>
                 <div class="w-full h-full">
-                    <img class="w-full h-full object-center object-cover" src="{{ asset('images/stefan-lancelot.png') }}"
-                        alt="">
+                    <img class="w-full h-full object-center object-cover"
+                        src="{{ asset('storage/' . $infos['picture_url']) }}" alt="">
                 </div>
             </div>
             <div class="blur-effect w-full h-80 p-2 border border-stroke backdrop-blur-md pointer-events-auto">
@@ -45,20 +45,19 @@
                 <div class="w-full h-full">
                     <div class="w-full flex flex-row items-center justify-between">
                         <p>{MAIL}</p>
-                        <a class="link" href="mailto:hello@stefanlancelot.com">hello@stefanlancelot.com</a>
+                        <a class="link" href="mailto:{{ $infos['email'] }}">{{ $infos['email'] }}</a>
                     </div>
                     <div class="w-full flex flex-row items-center justify-between">
                         <p>{SOCIAL}</p>
                         <div class="flex flex-row gap-1 items-center">
-                            <a class="link" target="_blank"
-                                href="https://www.linkedin.com/in/stefan-lancelot/">LinkedIn</a>
+                            <a class="link" target="_blank" href="{{ $infos['linkedin_url'] }}">LinkedIn</a>
                             /
-                            <a class="link" target="_blank" href="https://www.instagram.com/studio_khi/">Instagram</a>
+                            <a class="link" target="_blank" href="{{ $infos['instagram_url'] }}">Instagram</a>
                         </div>
                     </div>
                     <div class="w-full flex flex-row items-center justify-between">
                         <p>{REPO}</p>
-                        <a class="link" target="_blank" href="https://github.com/stfnlnc">Github</a>
+                        <a class="link" target="_blank" href="{{ $infos['github_url'] }}">Github</a>
                     </div>
                 </div>
             </div>
@@ -92,14 +91,9 @@
                 <div class="w-full h-full flex flex-col items-start justify-between">
                     <p>{Framework & Libraries}</p>
                     <p class="text-right ml-auto">
-                        {js} <br>
-                        {react} <br>
-                        {astro} <br>
-                        {gsap} <br>
-                        {php} <br>
-                        {laravel} <br>
-                        {wordpress} <br>
-                        {tailwindcss} <br>
+                        @foreach ($infos['tools'] as $tag)
+                            {{ $tag }} <br>
+                        @endforeach
                     </p>
                 </div>
             </div>
@@ -119,21 +113,19 @@
                 <div class="w-full h-full">
                     <div class="w-full flex flex-row items-center justify-between">
                         <p>{MAIL}</p>
-                        <a class="link" href="mailto:hello@stefanlancelot.com">hello@stefanlancelot.com</a>
+                        <a class="link" href="mailto:{{ $infos['email'] }}">{{ $infos['email'] }}</a>
                     </div>
                     <div class="w-full flex flex-row items-center justify-between">
                         <p>{SOCIAL}</p>
                         <div class="flex flex-row gap-1 items-center">
-                            <a class="link" target="_blank"
-                                href="https://www.linkedin.com/in/stefan-lancelot/">LinkedIn</a>
+                            <a class="link" target="_blank" href="{{ $infos['linkedin_url'] }}">LinkedIn</a>
                             /
-                            <a class="link" target="_blank"
-                                href="https://www.linkedin.com/in/stefan-lancelot/">Instagram</a>
+                            <a class="link" target="_blank" href="{{ $infos['instagram_url'] }}">Instagram</a>
                         </div>
                     </div>
                     <div class="w-full flex flex-row items-center justify-between">
                         <p>{REPO}</p>
-                        <a class="link" target="_blank" href="https://github.com/stfnlnc">Github</a>
+                        <a class="link" target="_blank" href="{{ $infos['github_url'] }}">Github</a>
                     </div>
                 </div>
             </div>
@@ -150,14 +142,9 @@
                 <div class="w-full h-full flex flex-col items-start justify-between">
                     <p>{Framework & Libraries}</p>
                     <p class="text-right ml-auto">
-                        {js} <br>
-                        {react} <br>
-                        {astro} <br>
-                        {gsap} <br>
-                        {php} <br>
-                        {laravel} <br>
-                        {wordpress} <br>
-                        {tailwindcss} <br>
+                        @foreach ($infos['tools'] as $tag)
+                            {{ '{' . $tag . '}' }} <br>
+                        @endforeach
                     </p>
                 </div>
             </div>
@@ -172,8 +159,8 @@
                     <div class="w-2 aspect-square bg-light"></div>
                 </div>
                 <div class="w-full h-full">
-                    <img class="w-full h-full object-center object-cover" src="{{ asset('images/stefan-lancelot.png') }}"
-                        alt="">
+                    <img class="w-full h-full object-center object-cover"
+                        src="{{ asset('storage/' . $infos['picture_url']) }}" alt="">
                 </div>
             </div>
             <div

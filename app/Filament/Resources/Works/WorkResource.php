@@ -18,9 +18,9 @@ class WorkResource extends Resource
 {
     protected static ?string $model = Work::class;
 
-    protected static ?string $navigationLabel = 'Projets';
-    protected static ?string $modelLabel = 'projet';
-    protected static ?string $pluralModelLabel = 'projets';
+    protected static ?string $navigationLabel = 'Projects';
+    protected static ?string $modelLabel = 'project';
+    protected static ?string $pluralModelLabel = 'projects';
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
 

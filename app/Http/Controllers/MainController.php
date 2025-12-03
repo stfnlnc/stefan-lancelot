@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Info;
 use App\Models\Work;
 use Illuminate\Http\Request;
 
@@ -9,7 +10,11 @@ class MainController extends Controller
 {
     public function index()
     {
-        return view('home', []);
+
+        $infos = Info::firstOrFail();
+        return view('home', [
+            'infos' => $infos
+        ]);
     }
 
     public function works()
