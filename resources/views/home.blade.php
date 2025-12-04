@@ -92,7 +92,7 @@
                     <p>{Framework & Libraries}</p>
                     <p class="text-right ml-auto">
                         @foreach ($infos['tools'] as $tag)
-                            {{ $tag }} <br>
+                            {{ '{' . $tag . '}' }} <br>
                         @endforeach
                     </p>
                 </div>
