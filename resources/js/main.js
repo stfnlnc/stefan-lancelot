@@ -5,6 +5,8 @@ import { PowerGlitch } from "powerglitch";
 
 gsap.registerPlugin(Draggable, InertiaPlugin);
 
+let mm = gsap.matchMedia();
+
 const draggables = document.querySelectorAll(".draggable");
 const cursor = document.querySelector("#cursor");
 const links = document.querySelectorAll(".link");
@@ -29,53 +31,84 @@ links.forEach((link) => {
 });
 
 draggables.forEach((draggable, key) => {
-    const drag = Draggable.create(draggable, {
-        bounds: ".main-container",
-        inertia: true,
-        // cursor: "none",
-        dragClickables: true,
-        onPress: function () {
-            cursor.style.left = `${this.pointerX}px`;
-            cursor.style.top = `${this.pointerY}px`;
-        },
-        onRelease: function () {
-            cursor.style.left = `${this.pointerX}px`;
-            cursor.style.top = `${this.pointerY}px`;
-        },
-        onDrag: function () {
-            cursor.style.left = `${this.pointerX}px`;
-            cursor.style.top = `${this.pointerY}px`;
-        },
+    mm.add("(prefers-reduced-motion: no-preference)", (context) => {
+        const drag = Draggable.create(draggable, {
+            bounds: ".main-container",
+            inertia: true,
+            dragClickables: true,
+            onPress: function () {
+                cursor.style.left = `${this.pointerX}px`;
+                cursor.style.top = `${this.pointerY}px`;
+            },
+            onRelease: function () {
+                cursor.style.left = `${this.pointerX}px`;
+                cursor.style.top = `${this.pointerY}px`;
+            },
+            onDrag: function () {
+                cursor.style.left = `${this.pointerX}px`;
+                cursor.style.top = `${this.pointerY}px`;
+            },
+        });
+
+        resetBtn.addEventListener("click", () => {
+            gsap.to(draggable, {
+                x: 0,
+                y: 0,
+                duration: 1.2,
+                ease: "power4.inOut",
+                onUpdate: () => {
+                    drag[0].update();
+                },
+            });
+        });
+    });
+    mm.add("(prefers-reduced-motion: reduce)", (context) => {
+        const drag = Draggable.create(draggable, {
+            bounds: ".main-container",
+            inertia: false,
+            dragClickables: true,
+            onPress: function () {
+                cursor.style.left = `${this.pointerX}px`;
+                cursor.style.top = `${this.pointerY}px`;
+            },
+            onRelease: function () {
+                cursor.style.left = `${this.pointerX}px`;
+                cursor.style.top = `${this.pointerY}px`;
+            },
+            onDrag: function () {
+                cursor.style.left = `${this.pointerX}px`;
+                cursor.style.top = `${this.pointerY}px`;
+            },
+        });
+        resetBtn.addEventListener("click", () => {
+            gsap.to(draggable, {
+                x: 0,
+                y: 0,
+                duration: 0,
+                onUpdate: () => {
+                    drag[0].update();
+                },
+            });
+        });
     });
 
     document.addEventListener("mousemove", (e) => {
         cursor.style.left = `${e.clientX - 20}px`;
         cursor.style.top = `${e.clientY - 20}px`;
     });
-
-    gsap.fromTo(
-        draggable,
-        {
-            clipPath: "inset(0 0 100% 0)",
-        },
-        {
-            clipPath: "inset(0 0 0% 0)",
-            duration: 2,
-            delay: 0.5 * key,
-            ease: "power4.inOut",
-        }
-    );
-
-    resetBtn.addEventListener("click", () => {
-        gsap.to(draggable, {
-            x: 0,
-            y: 0,
-            duration: 1.2,
-            ease: "power4.inOut",
-            onUpdate: () => {
-                drag[0].update();
+    mm.add("(prefers-reduced-motion: no-preference)", (context) => {
+        gsap.fromTo(
+            draggable,
+            {
+                clipPath: "inset(0 0 100% 0)",
             },
-        });
+            {
+                clipPath: "inset(0 0 0% 0)",
+                duration: 2,
+                delay: 0.5 * key,
+                ease: "power4.inOut",
+            }
+        );
     });
 });
 
@@ -105,21 +138,23 @@ updateClock();
 setInterval(updateClock, 10000);
 
 if (window.innerWidth > 768) {
-    PowerGlitch.glitch(".glitch", {
-        playMode: "hover",
-        hideOverflow: true,
-        timing: {
-            easing: "ease-out",
-        },
-        glitchTimeSpan: false,
-        shake: false,
-        slice: {
-            count: 60,
-            velocity: 6,
-            minHeight: 0.14,
-            maxHeight: 0.01,
-            cssFilters: "grayscale(100%)",
-        },
+    mm.add("(prefers-reduced-motion: no-preference)", (context) => {
+        PowerGlitch.glitch(".glitch", {
+            playMode: "hover",
+            hideOverflow: true,
+            timing: {
+                easing: "ease-out",
+            },
+            glitchTimeSpan: false,
+            shake: false,
+            slice: {
+                count: 60,
+                velocity: 6,
+                minHeight: 0.14,
+                maxHeight: 0.01,
+                cssFilters: "grayscale(100%)",
+            },
+        });
     });
 }
 
@@ -127,58 +162,62 @@ const main = document.getElementById("main");
 const buttons = document.querySelectorAll("a.button");
 
 window.onload = () => {
-    gsap.fromTo(
-        main,
-        {
-            clipPath: "inset(0% 100% 0% 0%)",
-        },
-        {
-            clipPath: "inset(0% 0% 0% 0%)",
-            duration: 0.8,
-            delay: 0.5,
-        }
-    );
-    gsap.fromTo(
-        ".blur-effect",
-        {
-            filter: "blur(10px)",
-        },
-        {
-            filter: "blur(0px)",
-            duration: 0.8,
-            delay: 0.5,
-        }
-    );
+    mm.add("(prefers-reduced-motion: no-preference)", (context) => {
+        gsap.fromTo(
+            main,
+            {
+                clipPath: "inset(0% 100% 0% 0%)",
+            },
+            {
+                clipPath: "inset(0% 0% 0% 0%)",
+                duration: 0.8,
+                delay: 0.5,
+            }
+        );
+        gsap.fromTo(
+            ".blur-effect",
+            {
+                filter: "blur(10px)",
+            },
+            {
+                filter: "blur(0px)",
+                duration: 0.8,
+                delay: 0.5,
+            }
+        );
+    });
 };
 
 if (main) {
-    buttons.forEach((button) => {
-        button.addEventListener("click", (e) => {
-            e.preventDefault();
-            let src = button.href;
-            gsap.fromTo(
-                main,
-                {
-                    clipPath: "inset(0% 0% 0% 0%)",
-                },
-                {
-                    clipPath: "inset(0% 100% 0% 0%)",
-                    duration: 0.8,
-                }
-            );
-            gsap.fromTo(
-                ".blur-effect",
-                {
-                    filter: "blur(0px)",
-                },
-                {
-                    filter: "blur(10px)",
-                    duration: 0.8,
-                }
-            );
-            setTimeout(() => {
-                location.href = src;
-            }, 800);
+    mm.add("(prefers-reduced-motion: no-preference)", (context) => {
+        buttons.forEach((button) => {
+            button.addEventListener("click", (e) => {
+                e.preventDefault();
+                let src = button.href;
+                gsap.fromTo(
+                    main,
+                    {
+                        clipPath: "inset(0% 0% 0% 0%)",
+                    },
+                    {
+                        clipPath: "inset(0% 100% 0% 0%)",
+                        duration: 0.8,
+                    }
+                );
+                gsap.fromTo(
+                    ".blur-effect",
+                    {
+                        filter: "blur(0px)",
+                    },
+                    {
+                        filter: "blur(10px)",
+                        duration: 0.8,
+                    }
+                );
+                setTimeout(() => {
+                    location.href = src;
+                }, 800);
+            });
         });
     });
 }

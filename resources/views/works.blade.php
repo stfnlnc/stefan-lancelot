@@ -22,7 +22,7 @@
             <div class="flex flex-row overflow-hidden h-full works-container">
                 @foreach ($works as $index => $work)
                     <div
-                        class="shrink-0 work w-full h-full p-2 overflow-hidden bg-dark transition-all duration-500 flex flex-col">
+                        class="shrink-0 work w-full h-full p-2 overflow-hidden bg-dark motion-safe:transition-all motion-safe:duration-500 flex flex-col">
                         <a target="_blank"
                             class="relative w-full h-full bg-dark border border-stroke inline-flex items-center justify-center overflow-hidden"
                             href="{{ $work->url }}">

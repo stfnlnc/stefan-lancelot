@@ -8,8 +8,7 @@
     </div>
     <section class="relative w-full max-w-screen-3xl md:h-lvh md:min-h-[800px] p-2.5 transition-opacity duration-500">
         <div id="main"
-            class="relative overflow-hidden flex flex-col items-start justify-start w-full h-full min-h-[98lvh] md:min-h-[780px] max-w-screen-3xl p-2 bg-dark"
-            style="clip-path: inset(0% 100% 0% 0%);">
+            class="relative overflow-hidden flex flex-col items-start justify-start w-full h-full min-h-[98lvh] md:min-h-[780px] max-w-screen-3xl p-2 bg-dark">
             <div class="relative z-30 flex flex-col-reverse lg:flex-row items-start justify-between w-full gap-2">
                 <x-title>
                     @if (request()->routeIs('home'))
