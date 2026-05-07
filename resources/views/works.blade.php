@@ -15,7 +15,6 @@
         content="Creating websites that grow your business. Focus on building high-performing websites that deliver a unique user experience." />
     @vite(['resources/css/main.css', 'resources/js/main.js'])
 @endsection
-{{-- {{ 'storage' . DIRECTORY_SEPARATOR . $work->image }} --}}
 @section('content')
     <x-layouts.guest>
         <div class="blur-effect relative w-full bg-dark h-full border border-stroke flex flex-col justify-between">

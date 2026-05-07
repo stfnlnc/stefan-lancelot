@@ -24,6 +24,11 @@ class MainController extends Controller
         ]);
     }
 
+    public function contact()
+    {
+        return view('contact', []);
+    }
+
     public function services()
     {
         return response('', 404);

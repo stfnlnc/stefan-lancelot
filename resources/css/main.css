@@ -62,8 +62,14 @@
     }
 
     p,
-    a {
+    a,
+    input,
+    textarea {
         font-family: "Jetbrains Mono", monospace;
+    }
+
+    textarea {
+        resize: none;
     }
 
     h1,

@@ -3,6 +3,12 @@ import { Draggable } from "gsap/Draggable";
 import InertiaPlugin from "gsap/InertiaPlugin";
 import { PowerGlitch } from "powerglitch";
 
+window.addEventListener("pageshow", function (event) {
+    if (event.persisted) {
+        window.location.reload();
+    }
+});
+
 gsap.registerPlugin(Draggable, InertiaPlugin);
 
 let mm = gsap.matchMedia();
@@ -320,3 +326,76 @@ if (prevWork && nextWork) {
         },
     });
 }
+
+const canvas = document.querySelector("#canvas");
+const ctx = canvas.getContext("2d");
+
+const pixelSize = 10;
+
+function resizeCanvas() {
+    // Met à jour la taille du canvas
+    canvas.width = canvas.offsetWidth;
+    canvas.height = canvas.offsetHeight;
+
+    // Efface le canvas
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    // Redessine les pixels
+    drawPixels();
+}
+
+function drawPixels() {
+    for (let x = 0; x < canvas.width; x += pixelSize) {
+        for (let y = 0; y < canvas.height; y += pixelSize) {
+            const o = Math.floor(Math.random() * 100) / 100;
+            const opacity = o > 0.4 ? 0 : o;
+            ctx.fillStyle = `rgba(109, 255, 30, ${opacity})`; // rgba au lieu de rgb pour l'opacité
+            ctx.fillRect(x, y, pixelSize, pixelSize);
+        }
+    }
+}
+
+// Initial draw
+resizeCanvas();
+
+// Redimensionne et redessine à chaque resize
+window.addEventListener("resize", resizeCanvas);
+
+canvas.addEventListener("mousemove", (e) => {
+    const rect = canvas.getBoundingClientRect();
+    const mouseX = e.clientX - rect.left;
+    const mouseY = e.clientY - rect.top;
+
+    const px = Math.floor(mouseX / pixelSize);
+    const py = Math.floor(mouseY / pixelSize);
+
+    // Liste des neighbors : centre + croix
+    const neighbors = [
+        [px, py], // centre
+        [px + 1, py], // droite
+        [px - 1, py], // gauche
+        [px, py + 1], // bas
+        [px, py - 1], // haut
+    ];
+
+    neighbors.forEach(([x, y], index) => {
+        if (x < 0 || y < 0) return;
+
+        // Le pixel central : opacité 1
+        let opacityOn = index === 0 ? 1 : Math.random();
+
+        ctx.clearRect(x * pixelSize, y * pixelSize, pixelSize, pixelSize);
+        ctx.fillStyle = `rgba(109, 255, 30, ${opacityOn})`;
+        ctx.fillRect(x * pixelSize, y * pixelSize, pixelSize, pixelSize);
+
+        // Retour aléatoire après délai
+        setTimeout(() => {
+            const o = Math.random();
+            const opacityOff = o > 0.4 ? 0 : o;
+
+            ctx.clearRect(x * pixelSize, y * pixelSize, pixelSize, pixelSize);
+            ctx.fillStyle = `rgba(109, 255, 30, ${opacityOff})`;
+            ctx.fillRect(x * pixelSize, y * pixelSize, pixelSize, pixelSize);
+        }, 100);
+    });
+});

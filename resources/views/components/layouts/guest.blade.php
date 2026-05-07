@@ -21,6 +21,7 @@
                 <div class="flex flex-row gap-2 ml-auto">
                     <x-link :route="'home'">Home</x-link>
                     <x-link :route="'works'">Works</x-link>
+                    <x-link :route="'contact'">Contact</x-link>
                     @if (request()->routeIs('home'))
                         <x-button id="resetBtn" class="hidden md:block">Clear Cache</x-button>
                     @endif
@@ -33,7 +34,7 @@
                 class="relative z-30 w-full mt-auto flex flex-col lg:flex-row items-start lg:items-end justify-between gap-2">
                 @if (request()->routeIs('home'))
                     <x-title>
-                        Front end <br> Developper
+                        Front end <br> Developer
                     </x-title>
                 @endif
                 <div class="text-xs item ml-auto">
