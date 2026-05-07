@@ -21,7 +21,6 @@
                 <div class="flex flex-row gap-2 ml-auto">
                     <x-link :route="'home'">Home</x-link>
                     <x-link :route="'works'">Works</x-link>
-                    <x-link :route="'contact'">Contact</x-link>
                     @if (request()->routeIs('home'))
                         <x-button id="resetBtn" class="hidden md:block">Clear Cache</x-button>
                     @endif
